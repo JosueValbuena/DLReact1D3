@@ -1,15 +1,14 @@
 import React, { useState } from "react";
+import {TareasIniciales} from "./TareasIniciales";
 
 const Tareas = () => {
 
     const [nombreTarea, setNombreTarea] = useState ("");
-    const [listaTareas, setListaTareas] = useState (["Tarea1", "Tarea2", "Tarea3"]); 
-
-    // const listaTareas = ["Tarea1", "Tarea2", "Tarea3"];
+    const [listaTareas, setListaTareas] = useState (TareasIniciales); 
 
     const enviarFormulario = (e) =>{
         e.preventDefault();
-        setListaTareas([...listaTareas, nombreTarea]);
+        setListaTareas([...listaTareas, {nombre: nombreTarea, completada: false}]);
         console.log(listaTareas);
         setNombreTarea("");
     }
@@ -27,7 +26,12 @@ const Tareas = () => {
             </form>
 
             <ul>
-                {listaTareas.map(tarea => <li key={tarea}>{tarea}</li>)}
+                {listaTareas.map(tarea => 
+                <li key={tarea.nombre} 
+                onClick={()=>console.log(tarea)} 
+                style={tarea.completada === true ? {textDecoration:"line-through"}:{}}>
+                {tarea.nombre}<button>Completar</button>
+                </li>)}
             </ul>
         </div>
     )
