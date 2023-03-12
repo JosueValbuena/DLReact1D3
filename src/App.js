@@ -1,12 +1,20 @@
-import React from "react";
-import Practica from "./components/Practica";
-import Tareas from "./components/Tareas"
+import React, { useState } from "react";
+import { BaseColaboradores } from "./components/BaseColaboradores";
+import BuscarColaborador from "./components/BuscarColaborador";
+import InputUsers from "./components/InputUsers";
+import UserList from "./components/UserList";
 
 function App() {
+
+  const [userDB, setUserDB] = useState(BaseColaboradores);
+
   return (
     <div className="App">
-      <Tareas />
-      <Practica />
+      <BuscarColaborador userDB={userDB} setUserDB={setUserDB}/>
+      <hr></hr>
+      <InputUsers userDB={userDB} setUserDB={setUserDB}/>
+      <hr></hr>
+      <UserList userDB={userDB}/>
     </div>
   );
 }
