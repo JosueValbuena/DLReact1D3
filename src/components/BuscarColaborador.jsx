@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TableRow from "./TableRow";
 
 const BuscarColaborador = ({ userDB, setUserDB }) => {
 
@@ -7,17 +8,16 @@ const BuscarColaborador = ({ userDB, setUserDB }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-    let result = [];
-    if(!buscar) {
-        result = userDB;
-    } else {
-        result = userDB.filter(
-            (user) => 
-            user.nombre.includes(buscar) || 
-            user.email.includes(buscar)
-        );
+    let userDBF = userDB.filter(
+        user => user.nombre === buscar || user.correo === buscar
+    )
+    
+    if(!buscar){
+        userDBF = userDB;
+        return
     }
-    console.log(result)
+    userDBF.map( ele => <TableRow userDB={ele}/>)
+    console.log(userDBF);
 }
 
     return (
