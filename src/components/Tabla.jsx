@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import TableRow from './TableRow';
 
-const Tabla = ({ userDB, setUserDB }) => {
+const Tabla = ({ userDB }) => {
 
     const [filtrar, setFiltrar] = useState("");
-    console.log(filtrar);
+    
     return (
         <div>
             <div>
@@ -12,10 +12,11 @@ const Tabla = ({ userDB, setUserDB }) => {
                 <input type="text"
                     value={filtrar}
                     placeholder="filtrar..."
-                    onChange={(e) => setFiltrar(e.target.value)} />
+                    onChange={(e) => setFiltrar(e.target.value)} 
+                    className="form-control"/>
             </div>
             <div>
-                <table>
+                <table className='table table-striped'>
                     <thead>
                         <tr>
                             <th>Nombre</th>

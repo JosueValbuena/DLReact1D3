@@ -9,7 +9,7 @@ function App() {
   const [userDB, setUserDB] = useState(BaseColaboradores);
 
   return (
-    <div className="App">
+    <div className="container w-50">
       <Ingreso userDB={userDB} setUserDB={setUserDB}/>
       <Tabla userDB={userDB}/>
     </div>
