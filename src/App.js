@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { BaseColaboradores } from "./components/BaseColaboradores";
-import BuscarColaborador from "./components/BuscarColaborador";
-import InputUsers from "./components/InputUsers";
-import UserList from "./components/UserList";
+import Ingreso from "./components/Ingreso";
+import Tabla from "./components/Tabla";
+
 
 function App() {
 
@@ -10,11 +10,8 @@ function App() {
 
   return (
     <div className="App">
-      <BuscarColaborador userDB={userDB} setUserDB={setUserDB}/>
-      <hr></hr>
-      <InputUsers userDB={userDB} setUserDB={setUserDB}/>
-      <hr></hr>
-      <UserList userDB={userDB}/>
+      <Ingreso userDB={userDB} setUserDB={setUserDB}/>
+      <Tabla userDB={userDB}/>
     </div>
   );
 }
